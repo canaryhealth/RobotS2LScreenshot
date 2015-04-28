@@ -27,4 +27,4 @@ Dependencies
 - RobotFramework
 - Selenium2Library (Robot Library)
 - Pillow
-- PerceptualDiff **you will need to install this separately**
+- PerceptualDiff **(you will need to install this separately)**

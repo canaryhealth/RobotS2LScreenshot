@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
-                                                    
+
 from robot.libraries.BuiltIn import BuiltIn
 from PIL import Image, ImageDraw
 
