@@ -1,0 +1,21 @@
+*** Settings ***
+
+Documentation  Robot test suite for RobotS2LScreenshot
+Library        Selenium2Library
+Library       ../src/RobotS2LScreenshot.py
+Test Teardown  Close All Browsers
+
+
+*** Test Cases ***
+
+Screenshot cropped to myform
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  Capture And Crop Page Screenshot  ${TEST_NAME}.png  css=form[id=myform]
+
+
+Screenshot with header and footer masked
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  ${locators}  Create List  xpath=//header  xpath=//footer
+  Capture And Mask Page Screenshot  filename=${TEST_NAME}.png  locators=${locators}
