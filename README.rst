@@ -10,19 +10,21 @@ perceptual diff testing.
 Usage
 =====
 
-.. code-block::
+.. code::
 
-Capture main area only
-  Capture And Crop Page Screenshot  example1.png  css=div.main
+  Capture main area only
+    Capture And Crop Page Screenshot  example1.png  css=div.main
 
-Capture and mask logo and submit button
-  ${locators}  Create List  xpath=//span[@class='logo']  xpath=//button[text()='Save']
-  Capture and Mask Page Screenshot  example2.png  ${locators}
+  Capture and mask logo and submit button
+    ${locators}  Create List  xpath=//span[@class='logo']  xpath=//button[text()='Save']
+    Capture and Mask Page Screenshot  example2.png  ${locators}
 
 
 Dependencies
 ============
 
+- Selenuim2
 - RobotFramework
-- Selenium2Library
-- PIL and Pillow
+- Selenium2Library (Robot Library)
+- Pillow
+- PerceptualDiff **you will need to install this separately**
