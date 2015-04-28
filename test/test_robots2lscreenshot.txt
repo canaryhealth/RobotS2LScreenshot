@@ -2,7 +2,7 @@
 
 Documentation  Robot test suite for RobotS2LScreenshot
 Library        Selenium2Library
-Library       ../src/RobotS2LScreenshot.py
+Library        RobotS2LScreenshot
 Test Teardown  Close All Browsers
 
 
