@@ -29,7 +29,7 @@ Run unit tests
 
 .. code:: bash
 
-  nosetests -v test_robots2lscreenshot.txt
+  nosetests -v test_robots2lscreenshot.py
 
 
 If the screenshots populated by the test cases are different from the baselines', differential images will be generated with the ``diff-`` prefix.

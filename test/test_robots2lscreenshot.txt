@@ -8,14 +8,41 @@ Test Teardown  Close All Browsers
 
 *** Test Cases ***
 
-Screenshot cropped to myform
+Screenshot cropped to myform locator
   Open Browser  file:///${CURDIR}/test.html
   Set Window Size  675  750
   Capture And Crop Page Screenshot  ${TEST_NAME}.png  css=form[id=myform]
 
 
-Screenshot with header and footer masked
+Screenshot cropped with invalid locator
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  Run Keyword and Expect Error  *  Capture And Crop Page Screenshot  ${TEST_NAME}.png  css=form[id=my]
+
+
+Screenshot with header and footer masked using locator
   Open Browser  file:///${CURDIR}/test.html
   Set Window Size  675  750
   ${locators}  Create List  xpath=//header  xpath=//footer
   Capture And Mask Page Screenshot  filename=${TEST_NAME}.png  locators=${locators}
+
+
+Screenshot with 1st and 4th quadrant masked using rectangle
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  ${rects}  Create List  0,0,337,339  337,339,338,340
+  Capture And Mask Page Screenshot  filename=${TEST_NAME}.png  rects=${rects}
+
+
+Screenshot masked with invalid locator
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  ${locators}  Create List  xpath=//h  xpath=//f
+  Run Keyword And EXpect Error  *  Capture And Mask Page Screenshot  filename=${TEST_NAME}.png  locators=${locators}
+
+
+Screenshot masked with invalid rectangle
+  Open Browser  file:///${CURDIR}/test.html
+  Set Window Size  675  750
+  ${rects}  Create List  a,b,c
+  Run Keyword and Expect Error  *  Capture And Mask Page Screenshot  filename=${TEST_NAME}.png  rects=${rects}
