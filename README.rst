@@ -17,7 +17,12 @@ Usage
 
   Capture and mask logo and submit button
     ${locators}  Create List  xpath=//span[@class='logo']  xpath=//button[text()='Save']
-    Capture and Mask Page Screenshot  example2.png  ${locators}
+    Capture and Mask Page Screenshot  example2.png  locators=${locators}
+
+  Capture and mask areas
+    # areas are specified as x,y,w,h
+    ${rects}  Create List  10,20,25,25  30,40,50,50
+    Capture and Mask Page Screenshot  example2.png  rects=${rects}
 
 
 Dependencies

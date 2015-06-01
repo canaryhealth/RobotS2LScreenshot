@@ -30,7 +30,8 @@ class RobotS2LScreenshot:
     self.crop_image(filename, [x, y, x+w, y+h])
 
 
-  def capture_and_mask_page_screenshot(self, filename, locators=None):
+  def capture_and_mask_page_screenshot(self, filename, locators=None,
+                                       rects=None):
     '''
     Captures page screenshot and masks specified element.
     '''
@@ -41,13 +42,20 @@ class RobotS2LScreenshot:
 
     rectangles = []
 
-    for locator in locators:
+    for locator in locators or []:
       element = s2l._element_find(locator, True, False)
       if element is None:
         raise AssertionError("Could not locate element for '%s'" % (locator))
       x, y = element.location['x'], element.location['y']
       w, h = element.size['width'], element.size['height']
       rectangles.append([x, y, x+w, y+h])
+
+    for rect in rects or []:
+      try:
+        x, y, w, h = [int(i) for i in rect.split(',')]
+        rectangles.append([x, y, x+w, y+h])
+      except:
+        raise AssertionError("Could not locate rectangle for '%s'" % (rect))
 
     self.mask_image(filename, rectangles)
 
