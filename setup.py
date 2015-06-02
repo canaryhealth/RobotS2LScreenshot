@@ -33,7 +33,7 @@ classifiers = [
 
 setup(
   name='RobotS2LScreenshot',
-  version='0.1',
+  version='0.1.1',
   description="Provides additional keywords to augment screenshots capabilities of RobotFramework's Selenium2Library, namely cropping and masking to help with perceptual diff testing.",
   long_description=README,
   classifiers=classifiers,
